@@ -112,6 +112,8 @@ class FaceApp:
         self.status_label.config(text="Tränar modell... Vänta.")
         self.window.update()
         self.label_map = face_core.train_model()
+        # Skapa om recognizer för att vara säker på att den ladda om
+        self.recognizer = cv2.face.LBPHFaceRecognizer_create()
         self.recognizer.read(face_core.MODEL_FILE)
         self.status_label.config(text="Träning klar!", fg="green")
         messagebox.showinfo("Klar", "Modellen är uppdaterad!")
@@ -125,23 +127,13 @@ class FaceApp:
             faces = face_core.detect_faces(gray)
 
             for (x, y, w, h) in faces:
-                # Lägg till lite marginal (padding) runt ansiktet
-                padding = 20
-                x1 = max(x - padding, 0)
-                y1 = max(y - padding, 0)
-                x2 = min(x + w + padding, frame.shape[1])
-                y2 = min(y + h + padding, frame.shape[0])
-                
-                face_section = gray[y1:y2, x1:x2]
-                
                 color = (0, 255, 0)
                 
                 if self.mode == "CAPTURE":
                     if self.capture_count < face_core.MAX_IMAGES:
                         self.capture_count += 1
                         save_path = f"{face_core.DATASET_PATH}/{self.capture_name}/{self.capture_count}.jpg"
-                        # Vi sparar ansiktet med padding för bättre kvalitet
-                        cv2.imwrite(save_path, face_section) 
+                        cv2.imwrite(save_path, gray[y:y+h, x:x+w])
                         self.status_label.config(text=f"Bild: {self.capture_count}/{face_core.MAX_IMAGES}", fg="blue")
                     else:
                         self.mode = "RECOGNIZE"
