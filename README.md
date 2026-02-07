@@ -1,6 +1,5 @@
 # Face Recognition System
 
-[🇸🇪 Svenska]
 Ett Python-program för ansiktsigenkänning med ett grafiskt gränssnitt (GUI). Systemet kan registrera nya användare, träna en AI-modell och känna igen ansikten i realtid.
 
 ## Funktioner
@@ -33,7 +32,6 @@ py gui_app.py
 
 # Face Recognition System (English)
 
-[🇬🇧 English]
 A Python based face recognition program with a graphical user interface (GUI). The system can register new users, train an AI model, and recognize faces in real-time.
 
 ## Features
@@ -62,3 +60,4 @@ py gui_app.py
 *   `gui_app.py`: The main program with the window.
 *   `face_core.py`: The logic for recognition and database management.
 #
+
