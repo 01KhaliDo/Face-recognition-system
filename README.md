@@ -6,7 +6,6 @@ Ett Python-program för ansiktsigenkänning med ett grafiskt gränssnitt (GUI). 
 *   **GUI**: Användarvänligt fönster byggt med Tkinter.
 *   **Live Igenkänning**: Visar namn och roll (t.ex. Student/Teacher) direkt på skärmen.
 *   **Automatisk Träning**: Tar bilder och uppdaterar modellen automatiskt.
-*   **Rollhantering**: Sparar roller i `roles.json`.
 
 ## Installation
 
@@ -38,7 +37,6 @@ A Python based face recognition program with a graphical user interface (GUI). T
 *   **GUI**: User-friendly window built with Tkinter.
 *   **Live Recognition**: Displays name and role (e.g. Student/Teacher) directly on screen.
 *   **Automatic Training**: Captures images and updates the model automatically.
-*   **Role Management**: Saves roles in `roles.json`.
 
 ## Installation
 
@@ -60,4 +58,5 @@ py gui_app.py
 *   `gui_app.py`: The main program with the window.
 *   `face_core.py`: The logic for recognition and database management.
 #
+
 
